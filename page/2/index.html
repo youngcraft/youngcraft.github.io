@@ -1,1885 +1,777 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="En">
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="follow your heart!fly your dream!">
+  <meta charset="utf-8">
+  <title>古萌</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="古萌">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="docker escapedocker 是一种轻量化虚拟环境，我主要关注如何实现docker逃逸，目前从公开的CVE中可以发现docker逃逸的基本方法 how to get root privilege ?docker escape基于docker的逃逸">
 <meta name="keywords" content="Pwn,ICS,Python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="古萌">
-<meta property="og:url" content="http://gumeng.fun/page/2/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="escape">
+<meta property="og:url" content="http://gumeng.fun/2018/10/24/2018-10-24-escape/index.html">
 <meta property="og:site_name" content="古萌">
-<meta property="og:description" content="follow your heart!fly your dream!">
+<meta property="og:description" content="docker escapedocker 是一种轻量化虚拟环境，我主要关注如何实现docker逃逸，目前从公开的CVE中可以发现docker逃逸的基本方法 how to get root privilege ?docker escape基于docker的逃逸">
 <meta property="og:locale" content="En">
+<meta property="og:updated_time" content="2018-10-25T06:16:56.823Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="古萌">
-<meta name="twitter:description" content="follow your heart!fly your dream!">
+<meta name="twitter:title" content="escape">
+<meta name="twitter:description" content="docker escapedocker 是一种轻量化虚拟环境，我主要关注如何实现docker逃逸，目前从公开的CVE中可以发现docker逃逸的基本方法 how to get root privilege ?docker escape基于docker的逃逸">
 
 
+<link rel="icon" href="/img/avatar.jpg">
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
 </script>
 
-
-
-  <link rel="canonical" href="http://gumeng.fun/page/2/">
-
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
 
 
 
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
-  <title>古萌</title>
-  
-
-
-
-
-
-
-
+<script src="/js/iconfont.js?v=1.0.1"></script>
 
 <link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
-
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="En">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">古萌</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">Pwner in ICS/Linux,Linux amateur, Python Exploit developer/addict</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
 </div>
 
-<nav class="site-nav">
-  
+<body>
+<aside class="nav mobile">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg">
+</a>
+<div class="author">
+    <span>古萌</span>
+</div>
 
-  
-    <ul id="menu" class="menu">
-      
+<div class="icon">
+    
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+        <a title="rss" href="/atom.xml" target="_blank">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"/>
+                </svg>
             
-            Home
-          </a>
-        </li>
-      
+        </a>
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            Archives
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gumeng.fun/2018/10/24/2017-08-26-为什么文件名要用小名/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="古萌">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="古萌">
-    </span>
-
-    
-      <header class="post-header">
-
         
+        <a title="github" href="https://github.com/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"/>
+                </svg>
+            
+        </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/2017-08-26-为什么文件名要用小名/" itemprop="url">Untitled</a></h1>
+    
         
-
-        <div class="post-meta">
-          <span class="post-time">
+        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T23:45:58+08:00">
-                2018-10-24
-              </time>
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"/>
+                </svg>
             
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+        </a>
         
-          
-            <h1 id="为什么文件名用小名"><a href="#为什么文件名用小名" class="headerlink" title="为什么文件名用小名"></a>为什么文件名用小名</h1><p>其实说实话，这个问题我的确没有仔细想过，今天查了一下，把搜到的内容记录下。</p>
-<p>阮一峰师傅曾剑写过这篇文章，在文章的开头写过如下这段话：</p>
-<blockquote>
-<p>“文件名建议只使用小写字母，不使用大写字母。”</p>
-<p>“为了醒目，某些说明文件的文件名，可以使用大写字母，比如README、LICENSE。”</p>
-</blockquote>
-<p>说实话，虽然这是 Linux 传统，我却从没认真想过原因。赶紧查资料，结果发现四个很有说服力的理由，支持这样做。</p>
-<p>阮大神在其中提到了四点原因：</p>
-<h2 id="可移植性"><a href="#可移植性" class="headerlink" title="可移植性"></a>可移植性</h2><p>Linux系统是大小写敏感的，而Windows、Mac系统正好相反，大小写不敏感。但是跨平台，这些都是问题。例如：abc，Abc，ABC文件名在windows、Mac、Linux系统中的识别会出现不同的问题，在Windows系统中abc不论大小写都是一样的。在Mac系统中，大小写也是不敏感的，在linux系统中，abc和ABC是不一样的文件，如果所有文件名都采用小写，具备保持良好的可移植性。</p>
-<h2 id="易读性"><a href="#易读性" class="headerlink" title="易读性"></a>易读性</h2><p>英文字母是大小写，方便读，试想看所有字母都是大小，你读着不累吗？？？</p>
-<h2 id="易用性"><a href="#易用性" class="headerlink" title="易用性"></a>易用性</h2><p>某些系统会生成一些预置的用户目录，采用首字母大写的目录名。比如，Ubuntu 在用户主目录会默认生成Downloads、 Pictures、Documents等目录。</p>
-<p>另外，某些常见的配置文件或说明文件，也采用大写的文件名，比如Makefile、INSTALL、CHANGELOG、.Xclients和.Xauthority等等。</p>
-<h2 id="便捷性"><a href="#便捷性" class="headerlink" title="便捷性"></a>便捷性</h2><p>文件名全部小写，还有利于命令行操作。比如，某些命令可以不使用-i参数了。</p>
-
-          
+    
         
-      
-    </div>
     
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gumeng.fun/2018/10/24/2017-08-26-heap学习/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="古萌">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="古萌">
-    </span>
-
-    
-      <header class="post-header">
-
         
+    
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/2017-08-26-heap学习/" itemprop="url">Untitled</a></h1>
+        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"/>
+                </svg>
+            
+        </a>
         
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T23:45:58+08:00">
-                2018-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
     
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
         
-          
-            <p>heap 学习系列之一 </p>
-<h1 id="初识堆管理机制"><a href="#初识堆管理机制" class="headerlink" title="初识堆管理机制"></a>初识堆管理机制</h1><h2 id="动态加载过程"><a href="#动态加载过程" class="headerlink" title="动态加载过程"></a>动态加载过程</h2><pre><code>malloc函数 
-free函数
-</code></pre><p>malloc 函数必须走</p>
-
-          
+        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-reddit"/>
+                </svg>
+            
+        </a>
         
-      
-    </div>
     
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gumeng.fun/2018/10/24/2017-08-26-C程序链接器本质/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="古萌">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="古萌">
-    </span>
-
-    
-      <header class="post-header">
-
         
+        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"/>
+                </svg>
+            
+        </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/2017-08-26-C程序链接器本质/" itemprop="url">Untitled</a></h1>
+    
         
-
-        <div class="post-meta">
-          <span class="post-time">
+        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T23:45:58+08:00">
-                2018-10-24
-              </time>
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"/>
+                </svg>
             
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+        </a>
         
-          
-            <p><strong>gmon_start</strong></p>
-<p>使用readelf -r 查看elf文件的时候，发现在rel.dyn表中有一个gmon_start符号（symbol）。</p>
-<p>Screenshot from 2016-07-18 16-55-00.png<br>google了一下这个符号表示什么，就找到了这篇文章What is gmon_start symbol?<br>大致的意思就是说call_gmon_start函数初始化gmon profiling system，这个系统是在编译程序时加上-pg选项，程序通过gprof可以输出函数调用等信息。 gmon_start 指向 gmon初始化函数, 该函数开始记录 profiling信息并在 atexit()中注册了一个清理函数。<br>上面提到的函数和功能都是在glibc中实现，下面看一下glibc的源码，在sysdeps/generic/initfini.c中</p>
-<pre><code>static void
-call_gmon_start(void)
-{
-   extern void __gmon_start__ (void) __attribute__ ((weak)); /*weak_extern (__gmon_start__);*/
-   void (*gmon_start) (void) = __gmon_start__;
-
-   if (gmon_start)
-   gmon_start ();
-}
-</code></pre><p>所以gmon_start会出现在重定向符号表中。<br>call _gmon_start的调用是在_init即.init段的代码中。</p>
-<p>至于上面提到的profile系统的作用和gmon_start 函数的作用请参考C++ Profiler工具之初体验<br><a href="http://www.cnblogs.com/lenolix/archive/2010/12/13/1904868.html" target="_blank" rel="noopener">http://www.cnblogs.com/lenolix/archive/2010/12/13/1904868.html</a></p>
-
-          
+    
         
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gumeng.fun/2018/10/24/2017-08-21-modbus协议扫描器设计与实现/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="古萌">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="古萌">
-    </span>
-
-    
-      <header class="post-header">
-
+        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"/>
+                </svg>
+            
+        </a>
         
+    
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/2017-08-21-modbus协议扫描器设计与实现/" itemprop="url">Untitled</a></h1>
+    
         
-
-        <div class="post-meta">
-          <span class="post-time">
+        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T23:45:58+08:00">
-                2018-10-24
-              </time>
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"/>
+                </svg>
             
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+        </a>
         
-          
-            <p>对modbus协议扫描器的分析</p>
-<h1 id="modbus-协议分析"><a href="#modbus-协议分析" class="headerlink" title="modbus 协议分析"></a>modbus 协议分析</h1><hr>
-<p>Modbus Packet Structure 协议格式</p>
-<table>
-<thead>
-<tr>
-<th>Trans ID</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\x00\x00</td>
-<td>\x00\x00</td>
-<td>\x00\x00    \x11        \x00        </td>
-</tr>
-</tbody>
-</table>
-<p>&lt;=================&gt;</p>
-<p>Trans ID    ProtoID(0)    Length        UnitID        FunctCode    Data len(0-253byte)</p>
-<h1 id="协议扫描代码"><a href="#协议扫描代码" class="headerlink" title="协议扫描代码"></a>协议扫描代码</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br></pre></td><td class="code"><pre><span class="line">import socket</span><br><span class="line">import array</span><br><span class="line">import optparse</span><br><span class="line">from IPy import IP</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line"></span><br><span class="line">	<span class="keyword">p</span> = optparse.OptionParser(	description=<span class="string">' Finds modbus devices in IP range and determines slave id.\nOutputs in ip:port &lt;tab&gt; sid format.'</span>,</span><br><span class="line">								prog=<span class="string">'modscan'</span>,</span><br><span class="line">								<span class="keyword">version</span>=<span class="string">'modscan 0.1'</span>,</span><br><span class="line">								usage = <span class="string">"usage: %prog [options] IPRange"</span>)</span><br><span class="line">	<span class="keyword">p</span>.add_option(<span class="string">'--port'</span>, <span class="string">'-p'</span>, <span class="built_in">type</span>=<span class="string">'int'</span>, dest=<span class="string">"port"</span>, default=<span class="number">502</span>, <span class="keyword">help</span>=<span class="string">'modbus port DEFAULT:502'</span>)</span><br><span class="line">	<span class="keyword">p</span>.add_option(<span class="string">'--timeout'</span>, <span class="string">'-t'</span>, <span class="built_in">type</span>=<span class="string">'int'</span>, dest=<span class="string">"timeout"</span>, default=<span class="number">500</span>, <span class="keyword">help</span>=<span class="string">'socket timeout (mills) DEFAULT:500'</span>)</span><br><span class="line">	<span class="keyword">p</span>.add_option(<span class="string">'--aggressive'</span>, <span class="string">'-a'</span>, action =<span class="string">'store_true'</span>, <span class="keyword">help</span>=<span class="string">'continues checking past first found SID'</span>)</span><br><span class="line">	<span class="keyword">p</span>.add_option(<span class="string">'--function'</span>, <span class="string">'-f'</span>, <span class="built_in">type</span>=<span class="string">'int'</span>, dest=<span class="string">"function"</span>, default=<span class="number">17</span>, <span class="keyword">help</span>=<span class="string">'MODBUS Function Code DEFAULT:17'</span>)</span><br><span class="line">	<span class="keyword">p</span>.add_option(<span class="string">'--data'</span>, <span class="built_in">type</span>=<span class="string">'string'</span>, dest=<span class="string">"fdata"</span>, <span class="keyword">help</span>=<span class="string">'MODBUS Function Data.  Unicode escaped "\x00\x01"'</span>)</span><br><span class="line">	<span class="keyword">p</span>.add_option(<span class="string">'-v'</span>, <span class="string">'--verbose'</span>, action =<span class="string">'store_true'</span>, <span class="keyword">help</span>=<span class="string">'returns verbose output'</span>)</span><br><span class="line">	<span class="keyword">p</span>.add_option(<span class="string">'-d'</span>, <span class="string">'--debug'</span>, action =<span class="string">'store_true'</span>, <span class="keyword">help</span>=<span class="string">'returns extremely verbose output'</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">options</span>, arguments = <span class="keyword">p</span>.parse_args()</span><br><span class="line"></span><br><span class="line">	#make sure we have at least <span class="number">1</span> <span class="keyword">argument</span> (IP Addresses)</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(arguments) == <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">		#build basic packet <span class="keyword">for</span> this test</span><br><span class="line"></span><br><span class="line">		<span class="string">""</span><span class="comment">"</span></span><br><span class="line">		Modbus Packet Structure</span><br><span class="line">		\x00\x00	\x00\x00	\x00\x00	\x11		\x00		&lt;=================&gt;</span><br><span class="line">		Trans ID	ProtoID(<span class="number">0</span>)	Length		UnitID		FunctCode	Data <span class="built_in">len</span>(<span class="number">0</span>-<span class="number">253</span>byte)</span><br><span class="line">		<span class="string">""</span><span class="comment">"</span></span><br><span class="line"></span><br><span class="line">		#this must <span class="keyword">be</span> stored in <span class="keyword">a</span> unsigned byte aray <span class="keyword">so</span> we can <span class="keyword">make</span> the assignment <span class="keyword">later</span>... <span class="keyword">no</span> <span class="built_in">string</span>[] in <span class="keyword">python</span> :(</span><br><span class="line">		rsid = array.array(<span class="string">'B'</span>)</span><br><span class="line">		rsid.fromstring(<span class="string">"\x00\x00\x00\x00\x00\x02\x01\x01"</span>)</span><br><span class="line">		#设置modbus功能码</span><br><span class="line">		#set <span class="function"><span class="keyword">function</span></span></span><br><span class="line">		rsid[<span class="number">7</span>]=<span class="keyword">options</span>.<span class="keyword">function</span></span><br><span class="line"></span><br><span class="line">		#add <span class="function"><span class="keyword">function</span> <span class="title">data</span></span></span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">options</span>.fdata):</span><br><span class="line">			aFData = array.array(<span class="string">'B'</span>)</span><br><span class="line"></span><br><span class="line">			#we must decode the escaped unicode before calling fromstring otherwise the literal \xXX will <span class="keyword">be</span> interpreted</span><br><span class="line">			aFData.fromstring(<span class="keyword">options</span>.fdata.decode(<span class="string">'unicode-escape'</span>) )</span><br><span class="line">			rsid += aFData</span><br><span class="line">			</span><br><span class="line">			#update length</span><br><span class="line">			rsid[<span class="number">5</span>]=<span class="built_in">len</span>(aFData)+<span class="number">2</span></span><br><span class="line">			#为什么还要加两个？？？表示很诧异</span><br><span class="line"></span><br><span class="line">		#assign IP <span class="built_in">range</span></span><br><span class="line">		iprange=IP(arguments[<span class="number">0</span>])</span><br><span class="line">		</span><br><span class="line">		#print friendly user message</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"Starting Scan..."</span></span><br><span class="line"></span><br><span class="line">		#primary loop over IP addresses</span><br><span class="line">		<span class="keyword">for</span> ip in iprange:</span><br><span class="line">		</span><br><span class="line">			#print str(ip)+<span class="string">" made it"</span></span><br><span class="line">			#loop over possible sid <span class="built_in">values</span> (<span class="number">1</span>-<span class="number">247</span>)</span><br><span class="line">			<span class="keyword">for</span> sid in <span class="built_in">range</span> (<span class="number">1</span>, <span class="number">247</span>):	</span><br><span class="line">			</span><br><span class="line">				#error messaging</span><br><span class="line">				fError=<span class="number">0</span></span><br><span class="line">				msg = str(ip)+<span class="string">":"</span>+str(<span class="keyword">options</span>.port)+<span class="string">"\t"</span>+str(sid)</span><br><span class="line">				</span><br><span class="line">				#print <span class="string">"msg="</span>+msg</span><br><span class="line"></span><br><span class="line">				#Wrap connect in <span class="keyword">a</span> <span class="keyword">try</span> box</span><br><span class="line">				<span class="keyword">try</span>:</span><br><span class="line">					#socket object instantiation</span><br><span class="line">					s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line"></span><br><span class="line">					#set socket timeout, value from cmd <span class="keyword">is</span> in mills</span><br><span class="line">					s.settimeout(float(<span class="keyword">options</span>.timeout) / float(<span class="number">1000</span>))			</span><br><span class="line"></span><br><span class="line">					#connect requires ip addresses in <span class="built_in">string</span> format <span class="keyword">so</span> it must <span class="keyword">be</span> cast</span><br><span class="line">					s.connect((str(ip), <span class="keyword">options</span>.port))</span><br><span class="line"></span><br><span class="line">				except socket.error:</span><br><span class="line">					#clean <span class="keyword">up</span></span><br><span class="line">					fError=<span class="number">1</span></span><br><span class="line">					msg += <span class="string">"\tFAILED TO CONNECT"</span></span><br><span class="line">					s.<span class="keyword">close</span>()</span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				#end <span class="keyword">try</span></span><br><span class="line">				</span><br><span class="line"></span><br><span class="line">				#send query <span class="keyword">to</span> device</span><br><span class="line">				<span class="keyword">try</span>:</span><br><span class="line">					#set slave id</span><br><span class="line">					rsid[<span class="number">6</span>]=sid		</span><br><span class="line"></span><br><span class="line">					#send data <span class="keyword">to</span> device</span><br><span class="line">					s.send(rsid)</span><br><span class="line">					</span><br><span class="line">				except socket.error:</span><br><span class="line">					#failed send <span class="keyword">close</span> socket</span><br><span class="line">					fError=<span class="number">1</span></span><br><span class="line">					msg += <span class="string">"\tFAILED TO SEND"</span></span><br><span class="line">					s.<span class="keyword">close</span>()</span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				#end <span class="keyword">try</span></span><br><span class="line">				</span><br><span class="line">				<span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">					#recieve data</span><br><span class="line">					data = s.recv(<span class="number">1024</span>)</span><br><span class="line">					</span><br><span class="line">				except socket.timeou<span class="variable">t:</span></span><br><span class="line">					fError=<span class="number">1</span></span><br><span class="line">					msg += <span class="string">"\tFAILED TO RECV"</span></span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				#end <span class="keyword">try</span></span><br><span class="line"></span><br><span class="line">				#examine response</span><br><span class="line">				<span class="keyword">if</span> dat<span class="variable">a:</span></span><br><span class="line">					#parse response</span><br><span class="line">					resp = array.array(<span class="string">'B'</span>)</span><br><span class="line">					resp.fromstring(data)</span><br><span class="line"></span><br><span class="line">					<span class="keyword">if</span> (<span class="keyword">options</span>.<span class="keyword">debug</span>):</span><br><span class="line">						<span class="keyword">print</span> <span class="string">"Recieved: "</span>+str(resp)</span><br><span class="line">						<span class="keyword">print</span> (<span class="keyword">int</span>(resp[<span class="number">7</span>]) == <span class="keyword">int</span>(<span class="keyword">options</span>.<span class="keyword">function</span>))</span><br><span class="line"></span><br><span class="line">					#if the <span class="function"><span class="keyword">function</span> <span class="title">matches</span> <span class="title">the</span> <span class="title">one</span> <span class="title">sent</span> <span class="title">we</span> <span class="title">are</span> <span class="title">all</span> <span class="title">good</span></span></span><br><span class="line">					<span class="keyword">if</span> (<span class="keyword">int</span>(resp[<span class="number">7</span>]) == <span class="keyword">int</span>(<span class="keyword">options</span>.<span class="keyword">function</span>)):</span><br><span class="line">						<span class="keyword">print</span> msg</span><br><span class="line">						</span><br><span class="line">						#in aggressive <span class="keyword">mode</span> we keep going</span><br><span class="line">						<span class="keyword">if</span> (not <span class="keyword">options</span>.aggressive):</span><br><span class="line">							<span class="keyword">break</span></span><br><span class="line">							</span><br><span class="line">					#If the <span class="function"><span class="keyword">function</span> <span class="title">matches</span> <span class="title">the</span> <span class="title">one</span> <span class="title">sent</span> + 0<span class="title">x80</span> <span class="title">a</span> <span class="title">positive</span> <span class="title">response</span> <span class="title">error</span> <span class="title">code</span> <span class="title">is</span> <span class="title">detected</span></span></span><br><span class="line">					elif <span class="keyword">int</span>(resp[<span class="number">7</span>]) == (<span class="keyword">int</span>(<span class="keyword">options</span>.<span class="keyword">function</span>)+<span class="number">128</span>):</span><br><span class="line">						#if <span class="keyword">debug</span> output message</span><br><span class="line">						msg += <span class="string">"\tPositive Error Response"</span></span><br><span class="line">						<span class="keyword">if</span> (<span class="keyword">options</span>.<span class="keyword">debug</span>):</span><br><span class="line">							<span class="keyword">print</span> msg							</span><br><span class="line">					<span class="keyword">else</span>:</span><br><span class="line">						#if <span class="keyword">debug</span> output message</span><br><span class="line">						<span class="keyword">if</span> (<span class="keyword">options</span>.<span class="keyword">debug</span>):</span><br><span class="line">							<span class="keyword">print</span> msg					</span><br><span class="line">				<span class="keyword">else</span>:</span><br><span class="line">					fError=<span class="number">1</span></span><br><span class="line">					msg += <span class="string">"\tFAILED TO RECIEVE"</span></span><br><span class="line">					s.<span class="keyword">close</span>()</span><br><span class="line">					<span class="keyword">break</span></span><br><span class="line">				</span><br><span class="line">			#end SID <span class="keyword">for</span></span><br><span class="line">			</span><br><span class="line"></span><br><span class="line">			#report based <span class="keyword">on</span> verbosity</span><br><span class="line">			<span class="keyword">if</span> (<span class="keyword">options</span>.<span class="keyword">verbose</span> <span class="built_in">and</span> fError):</span><br><span class="line">				<span class="keyword">print</span> msg</span><br><span class="line">			elif (<span class="keyword">options</span>.<span class="keyword">debug</span>):</span><br><span class="line">				<span class="keyword">print</span> msg</span><br><span class="line">		#end IP <span class="keyword">for</span></span><br><span class="line">				</span><br><span class="line">		#close socket, <span class="keyword">no</span> longer needed</span><br><span class="line">		#s.shutdown(socket.SHUT_RDWR)</span><br><span class="line">		s.<span class="keyword">close</span>()</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">print</span> <span class="string">"Scan Complete."</span></span><br><span class="line"></span><br><span class="line">	#bad <span class="keyword">number</span> of arguments.  <span class="keyword">print</span> <span class="keyword">help</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">p</span>.print_help()</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	<span class="keyword">try</span> : main()</span><br><span class="line">	except KeyboardInterrup<span class="variable">t:</span></span><br><span class="line">		<span class="keyword">print</span> <span class="string">"Scan canceled by user."</span></span><br><span class="line">		<span class="keyword">print</span> <span class="string">"Thank you for using ModScan"</span></span><br><span class="line">	except :</span><br><span class="line">		sys.<span class="keyword">exit</span>()</span><br></pre></td></tr></table></figure>
-
-          
+    
         
-      
-    </div>
     
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gumeng.fun/2018/10/24/2017-08-21-SQLChop检测引擎原理/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="古萌">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="古萌">
-    </span>
-
-    
-      <header class="post-header">
-
         
+        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"/>
+                </svg>
+            
+        </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/2017-08-21-SQLChop检测引擎原理/" itemprop="url">Untitled</a></h1>
+    
         
-
-        <div class="post-meta">
-          <span class="post-time">
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T23:45:58+08:00">
-                2018-10-24
-              </time>
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"/>
+                </svg>
             
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+        </a>
         
-          
-            <p>长亭 SQLchop 实现方法</p>
-<h1 id="SQL原理部分"><a href="#SQL原理部分" class="headerlink" title="SQL原理部分"></a>SQL原理部分</h1><p><a href="https://blog.chaitin.cn/sqlchop-the-sqli-detection-engine/" target="_blank" rel="noopener">https://blog.chaitin.cn/sqlchop-the-sqli-detection-engine/</a></p>
-<h1 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h1><p>在 8 月 5 日的 Blackhat 大会上，我们在 Arsenal 分会场做了 SQLChop 的展示，同步上线的还有 SQLChop 的网站 <a href="http://sqlchop.chaitin.com/" target="_blank" rel="noopener">http://sqlchop.chaitin.com/</a> ，以及在 Github 放出了 SQLChop 二进制模块的下载试用 <a href="https://github.com/chaitin/sqlchop" target="_blank" rel="noopener">https://github.com/chaitin/sqlchop</a> ，API 使用文档在 <a href="http://sqlchop.chaitin.com/doc.html" target="_blank" rel="noopener">http://sqlchop.chaitin.com/doc.html</a> 。</p>
-<h1 id="基于编译原理的sql处理引擎"><a href="#基于编译原理的sql处理引擎" class="headerlink" title="基于编译原理的sql处理引擎"></a>基于编译原理的sql处理引擎</h1><ol>
-<li>递归解码模块</li>
-<li>词法分析模块</li>
-<li>语法分析模块</li>
-<li>综合打分模块</li>
-</ol>
-
-          
+    
         
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gumeng.fun/2018/10/24/2017-08-16-ROPgadget使用方法/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="古萌">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="古萌">
-    </span>
-
-    
-      <header class="post-header">
-
+        <a title="kugou" href="https://www.kugou.com/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-kugou"/>
+                </svg>
+            
+        </a>
         
+    
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/2017-08-16-ROPgadget使用方法/" itemprop="url">Untitled</a></h1>
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"/>
+                </svg>
+            
+        </a>
         
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T23:45:58+08:00">
-                2018-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
     
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="ROPgadget-使用方法"><a href="#ROPgadget-使用方法" class="headerlink" title="ROPgadget 使用方法"></a>ROPgadget 使用方法</h1><h2 id="usage"><a href="#usage" class="headerlink" title="usage:"></a>usage:</h2><p>ROPgadget [-h] [-v] [-c] [–binary <binary>] [–opcode <opcodes>]<br>                 [–string <string>] [–memstr <string>] [–depth <nbyte>]<br>                 [–only <key>] [–filter <key>] [–range <start-end>]<br>                 [–badbytes <byte>] [–rawArch <arch>] [–rawMode <mode>]<br>                 [–re <re>] [–offset <hexaddr>] [–ropchain] [–thumb]<br>                 [–console] [–norop] [–nojop] [–callPreceded] [–nosys]<br>                 [–multibr] [–all] [–dump]</hexaddr></re></mode></arch></byte></start-end></key></key></nbyte></string></string></opcodes></binary></p>
-<h2 id="description"><a href="#description" class="headerlink" title="description:"></a>description:</h2><p>  ROPgadget lets you search your gadgets on a binary. It supports several<br>  file formats and architectures and uses the Capstone disassembler for<br>  the search engine.</p>
-<h2 id="formats-supported"><a href="#formats-supported" class="headerlink" title="formats supported:"></a>formats supported:</h2><ul>
-<li>ELF</li>
-<li>PE</li>
-<li>Mach-O</li>
-<li>Raw</li>
-</ul>
-<h2 id="architectures-supported"><a href="#architectures-supported" class="headerlink" title="architectures supported:"></a>architectures supported:</h2><ul>
-<li>x86</li>
-<li>x86-64</li>
-<li>ARM</li>
-<li>ARM64</li>
-<li>MIPS</li>
-<li>PowerPC</li>
-<li>Sparc</li>
-</ul>
-<h2 id="optional-arguments"><a href="#optional-arguments" class="headerlink" title="optional arguments:"></a>optional arguments:</h2><p>  -h, –help           show this help message and exit<br>  -v, –version        Display the ROPgadget’s version<br>  -c, –checkUpdate    Checks if a new version is available<br>  –binary <binary>    Specify a binary filename to analyze<br>  –opcode <opcodes>   Search opcode in executable segment<br>  –string <string>    Search string in readable segment<br>  –memstr <string>    Search each byte in all readable segment<br>  –depth <nbyte>      Depth for search engine (default 10)<br>  –only <key>         Only show specific instructions<br>  –filter <key>       Suppress specific instructions<br>  –range <start-end>  Search between two addresses (0x…-0x…)<br>  –badbytes <byte>    Rejects specific bytes in the gadget’s address<br>  –rawArch <arch>     Specify an arch for a raw file<br>  –rawMode <mode>     Specify a mode for a raw file<br>  –re <re>            Regular expression<br>  –offset <hexaddr>   Specify an offset for gadget addresses<br>  –ropchain           Enable the ROP chain generation<br>  –thumb              Use the thumb mode for the search engine (ARM only)<br>  –console            Use an interactive console for search engine<br>  –norop              Disable ROP search engine<br>  –nojop              Disable JOP search engine<br>  –callPreceded       Only show gadgets which are call-preceded<br>  –nosys              Disable SYS search engine<br>  –multibr            Enable multiple branch gadgets<br>  –all                Disables the removal of duplicate gadgets<br>  –dump               Outputs the gadget bytes</hexaddr></re></mode></arch></byte></start-end></key></key></nbyte></string></string></opcodes></binary></p>
-<h2 id="examples"><a href="#examples" class="headerlink" title="examples:"></a>examples:</h2><p>测试用例：</p>
-<pre><code>ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 
-#获取全部binary下的gadget组件
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --ropchain
-#形成rops链
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --depth 3
-#遍历深度为3，即只是遍历3层深度
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --string &quot;main&quot;
-#在出现main字符串的周围检索
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --string &quot;m..n&quot;
-#在m..n这种字符串周围检索gadgets
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --opcode c9c3
-#操作码是c9c3 
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --only &quot;mov|ret&quot;
-#包含mov|ret 这种模式的
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --only &quot;mov|pop|xor|ret&quot;
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --filter &quot;xchg|add|sub&quot;
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --norop --nosys
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --range 0x08041000-0x08042000
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --string main --range 0x080c9aaa-0x080c9aba
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --memstr &quot;/bin/sh&quot;
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --console
-ROPgadget.py --binary ./test-suite-binaries/elf-Linux-x86 --badbytes &quot;00|01-1f|7f|42&quot;
-ROPgadget.py --binary ./test-suite-binaries/Linux_lib64.so --offset 0xdeadbeef00000000
-ROPgadget.py --binary ./test-suite-binaries/elf-ARMv7-ls --depth 5
-ROPgadget.py --binary ./test-suite-binaries/elf-ARM64-bash --depth 5
-ROPgadget.py --binary ./test-suite-binaries/raw-x86.raw --rawArch=x86 --rawMode=32
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gumeng.fun/2018/10/24/2017-08-13-gdb-peda-pwntools安装使用问题/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="古萌">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="古萌">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/2017-08-13-gdb-peda-pwntools安装使用问题/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T23:45:58+08:00">
-                2018-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Peda-安装使用指南"><a href="#Peda-安装使用指南" class="headerlink" title="Peda 安装使用指南"></a>Peda 安装使用指南</h1><p>参考连接：<br><a href="http://www.ropshell.com/peda/Linux_Interactive_Exploit_Development_with_GDB_and_PEDA_Slides.pdf" title="peda-pdf" target="_blank" rel="noopener">http://www.ropshell.com/peda/Linux_Interactive_Exploit_Development_with_GDB_and_PEDA_Slides.pdf</a></p>
-<p>Peda的创作者是Long Le ，vns security的研究员，</p>
-<h2 id="GDB-peda安装"><a href="#GDB-peda安装" class="headerlink" title="GDB-peda安装"></a>GDB-peda安装</h2><p>1 需要安装packages </p>
-<blockquote>
-<p>sudo apt-get install nasm micro-inetd</p>
-</blockquote>
-<p>2 可选安装</p>
-<blockquote>
-<p>sudo apt-get install libc6-dbg vim ssh</p>
-</blockquote>
-<p>3 安装peda-tool </p>
-<blockquote>
-<p>Download peda.tar.gz at: <a href="http://ropshell.com/peda/" target="_blank" rel="noopener">http://ropshell.com/peda/</a></p>
-</blockquote>
-<p>本地打开</p>
-<blockquote>
-<p>$ tar zxvf peda.tar.gz</p>
-</blockquote>
-<p>创建 本地’.gdbinit’</p>
-<blockquote>
-<p>$ echo “source ~/peda/peda.py” &gt;~/.gdbinit</p>
-</blockquote>
-<p>本地可用的example</p>
-<blockquote>
-<p>Download bhus12-workshop.tar.gz at:</p>
-</blockquote>
-<blockquote>
-<p><a href="http://ropshell.com/peda/" target="_blank" rel="noopener">http://ropshell.com/peda/</a></p>
-</blockquote>
-<h2 id="pwntools-error"><a href="#pwntools-error" class="headerlink" title="pwntools error"></a>pwntools error</h2><p>Thanks for contributing to Pwntools!</p>
-<p>When reporting an issue, be sure that you are running the latest released version of pwntools (pip install –upgrade pwntools).</p>
-<p>Please verify that your issue occurs on 64-bit Ubuntu 14.04. You can use the Dockerfile on docker.io for quick testing.</p>
-<pre><code>$ docker pull pwntools/pwntools:stable
-$ docker run -it pwntools/pwntools:stable
-</code></pre><p>If possible, provide a proof-of-concept which demonstrates the problem. Include any binaries or scripts necessary to reproduce the issue, and please include the full debug output via setting the environment variable PWNLIB_DEBUG=1.</p>
-<p>pwntool gdb attach </p>
-<p>82<br>down vote<br>accepted<br>In Maverick Meerkat (10.10) Ubuntu introduced a patch to disallow ptracing of non-child processes by non-root users - ie. only a process which is a parent of another process can ptrace it for normal users - whilst root can still ptrace every process. Hence why you can use gdb to attach via sudo still.</p>
-<p>You can temporarily disable this restriction (and revert to the old behaviour allowing your user to ptrace (gdb) any of their other processes) by doing:</p>
-<p>echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope<br>To permanently allow it edit /etc/sysctl.d/10-ptrace.conf and change the line:</p>
-<p>kernel.yama.ptrace_scope = 1<br>To read</p>
-<p>kernel.yama.ptrace_scope = 0<br>For some background on why this change was made, see the Ubuntu wiki</p>
-<p>.plt 表示一个函数在libc中的偏移位置，如下代码:</p>
-<p>.plt:080483A0 ; ssize_t write(int fd, const void *buf, size_t n)<br>.plt:080483A0 _write          proc near               ; CODE XREF: main+2Ap<br>.plt:080483A0                 jmp     ds:off_804A010<br>.plt:080483A0 _write          endp</p>
-<p>指向了got.plt中的地址，got.plt则指向了plt的实际调用地址，外部调用函数偏移量：<br>.got.plt:0804A010 off_804A010     dd offset write         ; DATA XREF: _writer</p>
-<p>外部函数的偏移量则为：</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gumeng.fun/2018/10/24/2017-08-11-汇编指令学习/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="古萌">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="古萌">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/2017-08-11-汇编指令学习/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T23:45:58+08:00">
-                2018-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="汇编指令学习"><a href="#汇编指令学习" class="headerlink" title="汇编指令学习"></a>汇编指令学习</h1><p>指令的汇编格式：PUSH SRC ；POP DST<br>指令的基本功能：PUSH指令在程序中常用来暂存某些数据，而POP指令又可将这些数据恢复。</p>
-<p>PUSH 等价于：</p>
-<pre><code>subl $4, %esp
-
-movl %ebp (%esp)
-</code></pre><p>POP 等价于：</p>
-<pre><code>movl (%esp), %ead
-
-addl $4, %esp
-</code></pre><p>CALL指令的步骤：首先是将返回地址（也就是call指令要执行时EIP的值）压入栈顶，然后是将程序跳转到当前调用的方法的起始地址。执行push和jump指令。</p>
-<pre><code>push EIP+1(1个指令单位，4字节或8字节)
-jmp func_xx
-</code></pre><p>RET指令则是将栈顶的返回地址弹出到EIP，然后按照EIP此时指示的指令地址继续执行程序。</p>
-<p>esp -&gt; eip<br>continue eip (eip 往往指向栈低的ret返回地址)</p>
-<p>LEAVE指令是将栈指针指向帧顶位置，然后POP备份的原帧指针到%EBP。</p>
-<pre><code>eip -&gt; esp
-pop ebp-&gt;esp
-</code></pre><p># </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gumeng.fun/2018/10/24/2017-08-11-gdb 无法attach进程/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="古萌">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="古萌">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/2017-08-11-gdb 无法attach进程/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T23:45:58+08:00">
-                2018-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="gdb-attach-fails-with-ptrace-Operation-not-permitted"><a href="#gdb-attach-fails-with-ptrace-Operation-not-permitted" class="headerlink" title="gdb attach fails with ptrace: Operation not permitted"></a>gdb attach fails with ptrace: Operation not permitted</h1><p>Today I ran into a weird problem. I could not attach to my own process with gdb. The process ran under my UID, but gdb refused to attach. This is a problem of wrong permissions, although /proc/[pid]/status looked ok:</p>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Uid:   <span class="number"> 1000 </span>  <span class="number"> 1000 </span>  <span class="number"> 1000 </span>   1000</span><br><span class="line">Gid:   <span class="number"> 1000 </span>  <span class="number"> 1000 </span>  <span class="number"> 1000 </span>   1000</span><br></pre></td></tr></table></figure>
-<p>1<br>2<br>3<br>4<br><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Uid:   <span class="number"> 1000 </span>  <span class="number"> 1000 </span>  <span class="number"> 1000 </span>   1000</span><br><span class="line">Gid:   <span class="number"> 1000 </span>  <span class="number"> 1000 </span>  <span class="number"> 1000 </span>   1000</span><br></pre></td></tr></table></figure></p>
-<p>I am the owner but cannot attach? Well, I launched gdb as root and could attach. Strange. Without digging deeper into this, my dirty workaround was this:</p>
-<p>sudo chmod +s /usr/bin/gdb<br>1<br>sudo chmod +s /usr/bin/gdb</p>
-<p>Update: Thanks to Mario, who pointed out, that the reason is the Kernel hardening stuff build into the Ubuntu kernel. See his comment how to fix the problem permanently.</p>
-<p>why i cannot get a really address for<br>    #</p>
-<pre><code>#0  0xf76f9c89 in __kernel_vsyscall ()
-#1  0xf75fbb13 in __read_nocancel () at ../sysdeps/unix/syscall-template.S:84
-#2  0x080484df in vulnerable_function ()
-#3  0x0804851d in main ()
-#4  0xf753e637 in __libc_start_main (main=0x804850a &lt;main&gt;, argc=0x1, 
-argv=0xffde0464, init=0x8048540 &lt;__libc_csu_init&gt;, 
-fini=0x80485b0 &lt;__libc_csu_fini&gt;, rtld_fini=0xf770a8a0 &lt;_dl_fini&gt;, 
-stack_end=0xffde045c) at ../csu/libc-start.c:291
-#5  0x08048411 in _start ()
-#
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gumeng.fun/2018/10/22/aboutme-md/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="古萌">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="古萌">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/22/aboutme-md/" itemprop="url">aboutme.md</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-22T00:00:00+08:00">
-                2018-10-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="about-me"><a href="#about-me" class="headerlink" title="about me"></a>about me</h1><p>my email： <a href="mailto:youngtala@gmail.com" target="_blank" rel="noopener">youngtala@gmail.com</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">古萌</p>
-              <p class="site-description motion-element" itemprop="description">follow your heart!fly your dream!</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">35</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">tags</span>
-                
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">古萌</span>
-
-  
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
+<ul>
+    <li><div class="all active">全部文章<small>(35)</small></div></li>
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url" href="/about">关于</a><a style="width: 50%" class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="35">
 
-  <span class="post-meta-divider">|</span>
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
 
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search...">
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none">
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">Blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Pwn</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Heap Pwn</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
 
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
+    <nav id="title-list-nav">
         
-      </div>
+        <a class="" href="/2017/08/04/2017-08-04-外国ctf网站/" data-tag="" data-author="">
+            <span class="post-title" title="外国ctf网站">外国ctf网站</span>
+            <span class="post-date" title="2017-08-04 00:00:00">2017/08/04</span>
+        </a>
+        
+        <a class="" href="/2017/08/04/2017-08-06-LinuxELF文件学习/" data-tag="" data-author="">
+            <span class="post-title" title="ELF 文件结构">ELF 文件结构</span>
+            <span class="post-date" title="2017-08-04 00:00:00">2017/08/04</span>
+        </a>
+        
+        <a class="" href="/2017/08/09/2017-08-09-J2EE struts2远程命令执行漏洞 /" data-tag="Blog" data-author="">
+            <span class="post-title" title="J2EE struts2远程命令执行漏洞">J2EE struts2远程命令执行漏洞</span>
+            <span class="post-date" title="2017-08-09 00:00:00">2017/08/09</span>
+        </a>
+        
+        <a class="" href="/2017/08/04/2017-08-07-netzob/" data-tag="" data-author="">
+            <span class="post-title" title="外国ctf网站">外国ctf网站</span>
+            <span class="post-date" title="2017-08-04 00:00:00">2017/08/04</span>
+        </a>
+        
+        <a class="" href="/2017/08/10/2017-08-10-bin文件中对齐问题/" data-tag="Blog" data-author="">
+            <span class="post-title" title="二进制对齐问题">二进制对齐问题</span>
+            <span class="post-date" title="2017-08-10 00:00:00">2017/08/10</span>
+        </a>
+        
+        <a class="" href="/2017/08/11/2017-08-11-Linux下的堆块伪造/" data-tag="Pwn" data-author="">
+            <span class="post-title" title="Linux下堆块伪造技术">Linux下堆块伪造技术</span>
+            <span class="post-date" title="2017-08-11 00:00:00">2017/08/11</span>
+        </a>
+        
+        <a class="" href="/2017/08/10/2017-08-10-如何搭建pwn环境/" data-tag="Blog" data-author="">
+            <span class="post-title" title="搭建pwn环境">搭建pwn环境</span>
+            <span class="post-date" title="2017-08-10 00:00:00">2017/08/10</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-11-汇编指令学习/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-11-gdb 无法attach进程/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-13-gdb-peda-pwntools安装使用问题/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-16-ROPgadget使用方法/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-21-SQLChop检测引擎原理/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-21-modbus协议扫描器设计与实现/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2017/08/04/2017-08-26-C库函数学习/" data-tag="Blog" data-author="">
+            <span class="post-title" title="C库函数学习">C库函数学习</span>
+            <span class="post-date" title="2017-08-04 00:00:00">2017/08/04</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-26-C程序链接器本质/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-26-为什么文件名要用小名/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-26-heap学习/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-26-讲解内容/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2017/08/28/2017-08-27-Linux汇编基础/" data-tag="Blog" data-author="">
+            <span class="post-title" title="Linux汇编基础知识">Linux汇编基础知识</span>
+            <span class="post-date" title="2017-08-28 00:00:00">2017/08/28</span>
+        </a>
+        
+        <a class="" href="/2017/08/31/2017-08-29-Linux命令学习/" data-tag="Blog" data-author="">
+            <span class="post-title" title="Linux 命令学习">Linux 命令学习</span>
+            <span class="post-date" title="2017-08-31 00:00:00">2017/08/31</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-31-pwnable.kr学习/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-31-pwnable.tw学习/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-31-pwnable.tw之orw/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-31-pwnable.tw之start/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2017/10/30/2017-10-30-Pyhon执行cmd命令的若干方式/" data-tag="Blog" data-author="">
+            <span class="post-title" title="Python执行系统命令方法">Python执行系统命令方法</span>
+            <span class="post-date" title="2017-10-30 00:00:00">2017/10/30</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2017-08-31-scapy fuzz部分源码解析/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/01/15/2018-01-15-linux提权之setuid方法/" data-tag="Blog" data-author="">
+            <span class="post-title" title="setuid 提权方法总结">setuid 提权方法总结</span>
+            <span class="post-date" title="2018-01-15 00:00:00">2018/01/15</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2018-02-07-Ubuntu 16.04 搭建ARM 9 测试环境/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2017/08/28/2018-10-21-heap初识/" data-tag="Heap Pwn" data-author="">
+            <span class="post-title" title="Linux Heap introduction Linux pwn 入门学习">Linux Heap introduction Linux pwn 入门学习</span>
+            <span class="post-date" title="2017-08-28 00:00:00">2017/08/28</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/2018-10-24-escape/" data-tag="" data-author="">
+            <span class="post-title" title="escape">escape</span>
+            <span class="post-date" title="2018-10-24 23:51:52">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2018/10/22/aboutme-md/" data-tag="" data-author="">
+            <span class="post-title" title="aboutme.md">aboutme.md</span>
+            <span class="post-date" title="2018-10-22 00:00:00">2018/10/22</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/pip丢失问题/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+        <a class="" href="/2017/10/27/ssh配置远程登录问题/" data-tag="Blog" data-author="">
+            <span class="post-title" title="SSH配置远程登陆问题">SSH配置远程登陆问题</span>
+            <span class="post-date" title="2017-10-27 00:00:00">2017/10/27</span>
+        </a>
+        
+        <a class="" href="/2017/08/10/2017-08-10-GDB_peda插件使用指南/" data-tag="Blog" data-author="">
+            <span class="post-title" title="GDB_peda插件使用指南">GDB_peda插件使用指南</span>
+            <span class="post-date" title="2017-08-10 00:00:00">2017/08/10</span>
+        </a>
+        
+        <a class="" href="/2018/10/24/ROP攻击技术/" data-tag="" data-author="">
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-24 23:45:58">2018/10/24</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post index">
+    <div class="pjax">
+        <article class="index">
+            <div class="toc-ref">
     
-
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对博客的理解"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于叶落阁"><span class="toc-text">关于叶落阁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客平台"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
     
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
+<blockquote>
+<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
+</blockquote>
+<blockquote>
+<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
+</blockquote>
+<blockquote>
+<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
+</blockquote>
+<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
+<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
+<h2 id="关于叶落阁"><a href="#关于叶落阁" class="headerlink" title="关于叶落阁"></a>关于叶落阁</h2><p><strong>叶落阁</strong> 是阿杰（杨玉杰）的个人站。</p>
+<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
+<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
+<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a href="https://hexo.io/">Hexo</a> 生成，部署在 <a href="https://pages.github.com/">GitHub Pages</a>，主题 <a href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 已经在github上开源</p>
+<p>主要功能：</p>
+<ul>
+<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
+<li>pad/手机等移动端适配</li>
+<li>页面全局快捷键 <a href="http://yelog.org/2017/03/24/3-hexo-shortcuts/">3-hexo快捷键说明</a></li>
+</ul>
+
+        </article>
+        
+        <p>
+            <a  class="dashang" onclick="dashangToggle()">赏</a>
+        </p>
+        
+        
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket"></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
 
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
 
 </body>
+<script src="/js/jquery.pjax.js?v=1.0.1"></script>
+
+<script src="/js/script.js?v=1.0.1"></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Blog','#Pwn','#Heap Pwn',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
 </html>
