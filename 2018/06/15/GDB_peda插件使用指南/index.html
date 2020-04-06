@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   <title>GDB_PEDA Exploit 调试插件安装 | 古萌</title>
   <meta name="keywords" content=" Exploit ">
   <meta name="description" content="GDB_PEDA Exploit 调试插件安装 | 古萌">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="关于对博客世界的理解这个世界从HTML 1.0、2.0、3.0，不断进化的前端给人类的交流带来的新奇特殊的方式，这里借用王国维大师关于人生的三种境界：  古今之成大事业、大学问者，必经过三种之境界：“昨夜西风凋碧树。独上高楼，望尽天涯路”，此第一境也。“衣带渐宽终不悔，为伊消得人憔悴”，此第二境也。“众里寻他千百度，蓦然回首，那人却在，灯火阑珊处”，此第三境也。此等语皆非大词人不能道。然遽以此意解">
-<meta name="keywords" content="Pwn,ICS,Python">
+<meta name="description" content="关于对博客世界的理解这个世界从HTML 1.0、2.0、3.0，不断进化的前端给人类的交流带来的新奇特殊的方式，这里借用王国维大师关于人生的三种境界：  古今之成大事业、大学问者，必经过三种之境界：   “昨夜西风凋碧树。独上高楼，望尽天涯路”，此第一境也。 “衣带渐宽终不悔，为伊消得人憔悴”，此第二境也。 “众里寻他千百度，蓦然回首，那人却在，灯火阑珊处”，此第三境也。此等语皆非大词人不能道。然">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://gumeng.fun/about/index.html">
+<meta property="og:title" content="关于我和我的博客">
+<meta property="og:url" content="http://gumeng.fun/aboutme/index.html">
 <meta property="og:site_name" content="古萌">
-<meta property="og:description" content="关于对博客世界的理解这个世界从HTML 1.0、2.0、3.0，不断进化的前端给人类的交流带来的新奇特殊的方式，这里借用王国维大师关于人生的三种境界：  古今之成大事业、大学问者，必经过三种之境界：“昨夜西风凋碧树。独上高楼，望尽天涯路”，此第一境也。“衣带渐宽终不悔，为伊消得人憔悴”，此第二境也。“众里寻他千百度，蓦然回首，那人却在，灯火阑珊处”，此第三境也。此等语皆非大词人不能道。然遽以此意解">
-<meta property="og:locale" content="En">
-<meta property="og:updated_time" content="2020-02-16T14:09:03.282Z">
+<meta property="og:description" content="关于对博客世界的理解这个世界从HTML 1.0、2.0、3.0，不断进化的前端给人类的交流带来的新奇特殊的方式，这里借用王国维大师关于人生的三种境界：  古今之成大事业、大学问者，必经过三种之境界：   “昨夜西风凋碧树。独上高楼，望尽天涯路”，此第一境也。 “衣带渐宽终不悔，为伊消得人憔悴”，此第二境也。 “众里寻他千百度，蓦然回首，那人却在，灯火阑珊处”，此第三境也。此等语皆非大词人不能道。然">
+<meta property="og:locale" content="undefined">
+<meta property="article:published_time" content="2018-10-22T01:26:47.000Z">
+<meta property="article:modified_time" content="2020-04-06T08:05:19.989Z">
+<meta property="article:author" content="古萌">
+<meta property="article:tag" content="Pwn">
+<meta property="article:tag" content="ICS">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="关于对博客世界的理解这个世界从HTML 1.0、2.0、3.0，不断进化的前端给人类的交流带来的新奇特殊的方式，这里借用王国维大师关于人生的三种境界：  古今之成大事业、大学问者，必经过三种之境界：“昨夜西风凋碧树。独上高楼，望尽天涯路”，此第一境也。“衣带渐宽终不悔，为伊消得人憔悴”，此第二境也。“众里寻他千百度，蓦然回首，那人却在，灯火阑珊处”，此第三境也。此等语皆非大词人不能道。然遽以此意解">
 
 
 <link rel="icon" href="/img/head.jpg">
@@ -30,7 +32,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
@@ -41,11 +43,11 @@
 
 
 
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/js/iconfont.js?v=1.0.1"></script>
+<script src="/js/iconfont.js?v=1.0.1" ></script>
 
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="false">
@@ -56,7 +58,7 @@
 <aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/head.jpg">
+    <img class="avatar" src="/img/head.jpg" />
 </a>
 <div class="author">
     <span>古萌</span>
@@ -68,7 +70,7 @@
         <a title="rss" href="/atom.xml" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-rss"/>
+                    <use xlink:href="#icon-rss"></use>
                 </svg>
             
         </a>
@@ -78,7 +80,7 @@
         <a title="github" href="https://github.com/youngcraft" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"/>
+                    <use xlink:href="#icon-github"></use>
                 </svg>
             
         </a>
@@ -90,27 +92,11 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(24)</small></div></li>
+    <li><div class="all active">全部文章<small>(25)</small></div></li>
     
         
             
             <li><div data-rel="Linux">Linux<small>(2)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="Exploit">Exploit<small>(3)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="CTF">CTF<small>(1)</small></div>
                 
             </li>
             
@@ -126,7 +112,7 @@
     
         
             
-            <li><div data-rel="tools">tools<small>(9)</small></div>
+            <li><div data-rel="Exploit">Exploit<small>(3)</small></div>
                 
             </li>
             
@@ -135,6 +121,22 @@
         
             
             <li><div data-rel="Coding">Coding<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="tools">tools<small>(9)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="CTF">CTF<small>(1)</small></div>
                 
             </li>
             
@@ -156,9 +158,9 @@
     
     
     </div>
-    <div><a class="about  hasFriend  site_url" href="/about">关于</a><a style="width: 50%" class="friends">友链</a></div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="24">
+<input type="hidden" id="yelog_site_posts_number" value="25">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -188,18 +190,18 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode === 13){return false;}">
-        <input id="local-search-input" class="search" type="text" placeholder="Search...">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
         <i class="cross"></i>
         <span>
             <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none">
+            <input id="tagswitch" type="checkbox" style="display: none" />
             <i id="tagsWitchIcon"></i>
         </span>
     </form>
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a class="color5">Blog</a>
+        <a class="color3">Exploit</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -207,23 +209,15 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color4">Exp</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color4">Filename</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a class="color1">Linux</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color4">Heap Pwn</a>
+        <a class="color4">Exp</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">Exploit</a>
+        <a class="color4">Heap Pwn</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -236,6 +230,10 @@
     
     <li class="article-tag-list-item">
         <a class="color3">随笔</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Filename</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -252,124 +250,204 @@
     
     <nav id="title-list-nav">
         
-        <a class="Exploit " href="/2020/02/26/CVE-2020-0688：微软EXCHANGE服务的远程代码执行漏洞/" data-tag="Exploit" data-author="">
-            <span class="post-title" title="CVE-2020-0688：微软EXCHANGE服务的远程代码执行漏洞">CVE-2020-0688：微软EXCHANGE服务的远程代码执行漏洞</span>
-            <span class="post-date" title="2020-02-26 23:00:16">2020/02/26</span>
-        </a>
-        
-        <a class="tools " href="/2020/02/16/aflsmart牛刀小试/" data-tag="" data-author="">
-            <span class="post-title" title="aflsmart牛刀小试">aflsmart牛刀小试</span>
-            <span class="post-date" title="2020-02-16 22:09:29">2020/02/16</span>
-        </a>
-        
-        <a class="Linux " href="/2017/10/27/ssh配置远程登录问题/" data-tag="" data-author="">
-            <span class="post-title" title="SSH配置远程登陆问题">SSH配置远程登陆问题</span>
-            <span class="post-date" title="2017-10-27 09:50:08">2017/10/27</span>
-        </a>
-        
-        <a class="" href="/2018/10/22/aboutme-md/" data-tag="" data-author="">
-            <span class="post-title" title="aboutme.md">aboutme.md</span>
-            <span class="post-date" title="2018-10-22 09:50:08">2018/10/22</span>
-        </a>
-        
-        <a class="随笔 " href="/2020/04/06/致敬90后致敬青春/" data-tag="随笔" data-author="">
+        <a id="top" class="随笔 "
+           href="/2020/04/06/%E8%87%B4%E6%95%AC90%E5%90%8E%E8%87%B4%E6%95%AC%E9%9D%92%E6%98%A5/"
+           data-tag="随笔"
+           data-author="" >
             <span class="post-title" title="致敬90后致敬青春">致敬90后致敬青春</span>
             <span class="post-date" title="2020-04-06 12:30:33">2020/04/06</span>
         </a>
         
-        <a class="Pwn " href="/2020/02/16/ROP攻击技术/" data-tag="Pwn" data-author="">
-            <span class="post-title" title="一步一步学ROP之linux_x64篇">一步一步学ROP之linux_x64篇</span>
-            <span class="post-date" title="2020-02-16 22:09:29">2020/02/16</span>
-        </a>
-        
-        <a class="tools " href="/2020/02/15/nmap使用方法/" data-tag="nmap" data-author="">
-            <span class="post-title" title="nmap使用方法">nmap使用方法</span>
-            <span class="post-date" title="2020-02-15 09:50:08">2020/02/15</span>
-        </a>
-        
-        <a class="tools " href="/2018/06/15/GDB_peda插件使用指南/" data-tag="Exploit" data-author="">
-            <span class="post-title" title="GDB_PEDA Exploit 调试插件安装">GDB_PEDA Exploit 调试插件安装</span>
-            <span class="post-date" title="2018-06-15 09:50:08">2018/06/15</span>
-        </a>
-        
-        <a class="tools " href="/2018/01/01/modbus协议扫描器设计与实现/" data-tag="Exploit" data-author="">
-            <span class="post-title" title="Modbus协议扫描器的分析">Modbus协议扫描器的分析</span>
-            <span class="post-date" title="2018-01-01 09:50:08">2018/01/01</span>
-        </a>
-        
-        <a class="Pwn " href="/2018/01/15/linux提权之setuid方法/" data-tag="linux,privilge" data-author="">
-            <span class="post-title" title="Linux 提权之setuid使用提权">Linux 提权之setuid使用提权</span>
-            <span class="post-date" title="2018-01-15 09:50:08">2018/01/15</span>
-        </a>
-        
-        <a class="Exploit " href="/2020/02/15/J2EE struts2远程命令执行漏洞 /" data-tag="漏洞利用" data-author="">
-            <span class="post-title" title="struts2远程命令执行漏洞S2-045">struts2远程命令执行漏洞S2-045</span>
-            <span class="post-date" title="2020-02-15 09:50:08">2020/02/15</span>
-        </a>
-        
-        <a class="Pwn " href="/2018/06/15/Linux下的堆块伪造/" data-tag="Exploit" data-author="">
-            <span class="post-title" title="Linux Pwn 之堆块伪造技术">Linux Pwn 之堆块伪造技术</span>
-            <span class="post-date" title="2018-06-15 09:50:08">2018/06/15</span>
-        </a>
-        
-        <a class="tools " href="/2017/07/01/ROPgadget使用方法/" data-tag="Exp" data-author="">
-            <span class="post-title" title="ROPgadget 使用指南">ROPgadget 使用指南</span>
-            <span class="post-date" title="2017-07-01 09:50:08">2017/07/01</span>
-        </a>
-        
-        <a class="CTF " href="/2020/08/04/外国ctf网站/" data-tag="" data-author="">
+        <a  class="CTF "
+           href="/2020/08/04/%E5%A4%96%E5%9B%BDctf%E7%BD%91%E7%AB%99/"
+           data-tag=""
+           data-author="" >
             <span class="post-title" title="外国ctf学习网站集锦（未完待续）">外国ctf学习网站集锦（未完待续）</span>
             <span class="post-date" title="2020-08-04 09:50:08">2020/08/04</span>
         </a>
         
-        <a class="Exploit " href="/2019/02/15/bin文件中对齐问题/" data-tag="漏洞利用" data-author="">
-            <span class="post-title" title="二进制文件中堆栈对齐问题">二进制文件中堆栈对齐问题</span>
-            <span class="post-date" title="2019-02-15 09:50:08">2019/02/15</span>
+        <a  class=""
+           href="/2020/04/06/rconfig%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81RCE%E6%BC%8F%E6%B4%9E/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="rconfig用户登录认证RCE漏洞">rconfig用户登录认证RCE漏洞</span>
+            <span class="post-date" title="2020-04-06 19:39:28">2020/04/06</span>
         </a>
         
-        <a class="tools " href="/2018/06/15/gdb-peda-pwntools安装使用问题/" data-tag="Exploit" data-author="">
-            <span class="post-title" title="Peda 安装指南">Peda 安装指南</span>
-            <span class="post-date" title="2018-06-15 09:50:08">2018/06/15</span>
+        <a  class="Exploit "
+           href="/2020/02/26/%E5%BE%AE%E8%BD%AFEXCHANGE%E6%9C%8D%E5%8A%A1%E7%9A%84%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E(CVE-2020-0688)/"
+           data-tag="Exploit"
+           data-author="" >
+            <span class="post-title" title="微软EXCHANGE服务的远程代码执行漏洞(CVE-2020-0688)">微软EXCHANGE服务的远程代码执行漏洞(CVE-2020-0688)</span>
+            <span class="post-date" title="2020-02-26 23:00:16">2020/02/26</span>
         </a>
         
-        <a class="tools " href="/2017/06/15/为什么文件名要用小名/" data-tag="Filename" data-author="">
-            <span class="post-title" title="为什么文件名用小名">为什么文件名用小名</span>
-            <span class="post-date" title="2017-06-15 09:50:08">2017/06/15</span>
+        <a  class="Pwn "
+           href="/2020/02/16/ROP%E6%94%BB%E5%87%BB%E6%8A%80%E6%9C%AF/"
+           data-tag="Pwn"
+           data-author="" >
+            <span class="post-title" title="一步一步学ROP之linux_x64篇">一步一步学ROP之linux_x64篇</span>
+            <span class="post-date" title="2020-02-16 22:09:29">2020/02/16</span>
         </a>
         
-        <a class="tools " href="/2018/06/15/gdb 无法attach进程/" data-tag="Exploit" data-author="">
-            <span class="post-title" title="GDB 无法attach进程">GDB 无法attach进程</span>
-            <span class="post-date" title="2018-06-15 09:50:08">2018/06/15</span>
+        <a  class="tools "
+           href="/2020/02/16/aflsmart%E7%89%9B%E5%88%80%E5%B0%8F%E8%AF%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="aflsmart牛刀小试">aflsmart牛刀小试</span>
+            <span class="post-date" title="2020-02-16 22:09:29">2020/02/16</span>
         </a>
         
-        <a class="" href="/2017/08/28/heap初识/" data-tag="Heap Pwn" data-author="">
-            <span class="post-title" title="Linux Heap introduction Linux pwn 入门学习">Linux Heap introduction Linux pwn 入门学习</span>
-            <span class="post-date" title="2017-08-28 09:50:08">2017/08/28</span>
+        <a  class="tools "
+           href="/2020/02/15/nmap%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"
+           data-tag="nmap"
+           data-author="" >
+            <span class="post-title" title="nmap使用方法">nmap使用方法</span>
+            <span class="post-date" title="2020-02-15 09:50:08">2020/02/15</span>
         </a>
         
-        <a class="Pwn " href="/2020/02/15/如何搭建pwn环境/" data-tag="Exploit" data-author="">
+        <a  class="Exploit "
+           href="/2020/02/15/J2EE%20struts2%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%20/"
+           data-tag="漏洞利用"
+           data-author="" >
+            <span class="post-title" title="struts2远程命令执行漏洞S2-045">struts2远程命令执行漏洞S2-045</span>
+            <span class="post-date" title="2020-02-15 09:50:08">2020/02/15</span>
+        </a>
+        
+        <a  class="Pwn "
+           href="/2020/02/15/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BApwn%E7%8E%AF%E5%A2%83/"
+           data-tag="Exploit"
+           data-author="" >
             <span class="post-title" title="如何搭建Pwn利用环境">如何搭建Pwn利用环境</span>
             <span class="post-date" title="2020-02-15 09:50:08">2020/02/15</span>
         </a>
         
-        <a class="tools " href="/2016/06/15/SQLChop检测引擎原理/" data-tag="Exploit" data-author="">
-            <span class="post-title" title="长亭 SQLchop 实现方法">长亭 SQLchop 实现方法</span>
-            <span class="post-date" title="2016-06-15 09:50:08">2016/06/15</span>
+        <a  class="Linux "
+           href="/2020/01/04/ELF%20%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ELF 文件结构">ELF 文件结构</span>
+            <span class="post-date" title="2020-01-04 09:50:08">2020/01/04</span>
         </a>
         
-        <a class="Coding " href="/2017/10/30/Pyhon执行cmd命令的若干方式/" data-tag="Linux" data-author="">
-            <span class="post-title" title="Python执行系统命令方法">Python执行系统命令方法</span>
-            <span class="post-date" title="2017-10-30 09:50:08">2017/10/30</span>
+        <a  class="Exploit "
+           href="/2019/02/15/bin%E6%96%87%E4%BB%B6%E4%B8%AD%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98/"
+           data-tag="漏洞利用"
+           data-author="" >
+            <span class="post-title" title="二进制文件中堆栈对齐问题">二进制文件中堆栈对齐问题</span>
+            <span class="post-date" title="2019-02-15 09:50:08">2019/02/15</span>
         </a>
         
-        <a class="" href="/2018/10/24/escape/" data-tag="" data-author="">
+        <a  class=""
+           href="/2018/10/24/escape/"
+           data-tag=""
+           data-author="" >
             <span class="post-title" title="escape">escape</span>
             <span class="post-date" title="2018-10-24 23:51:52">2018/10/24</span>
         </a>
         
-        <a class="Linux " href="/2020/08/04/ELF 文件结构/" data-tag="" data-author="">
-            <span class="post-title" title="ELF 文件结构">ELF 文件结构</span>
-            <span class="post-date" title="2020-08-04 09:50:08">2020/08/04</span>
+        <a  class=""
+           href="/2018/10/22/aboutme-md/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="aboutme.md">aboutme.md</span>
+            <span class="post-date" title="2018-10-22 09:50:08">2018/10/22</span>
+        </a>
+        
+        <a  class="tools "
+           href="/2018/06/15/gdb-peda-pwntools%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/"
+           data-tag="Exploit"
+           data-author="" >
+            <span class="post-title" title="Peda 安装指南">Peda 安装指南</span>
+            <span class="post-date" title="2018-06-15 09:50:08">2018/06/15</span>
+        </a>
+        
+        <a  class="Pwn "
+           href="/2018/06/15/Linux%E4%B8%8B%E7%9A%84%E5%A0%86%E5%9D%97%E4%BC%AA%E9%80%A0/"
+           data-tag="Exploit"
+           data-author="" >
+            <span class="post-title" title="Linux Pwn 之堆块伪造技术">Linux Pwn 之堆块伪造技术</span>
+            <span class="post-date" title="2018-06-15 09:50:08">2018/06/15</span>
+        </a>
+        
+        <a  class="tools "
+           href="/2018/06/15/GDB_peda%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+           data-tag="Exploit"
+           data-author="" >
+            <span class="post-title" title="GDB_PEDA Exploit 调试插件安装">GDB_PEDA Exploit 调试插件安装</span>
+            <span class="post-date" title="2018-06-15 09:50:08">2018/06/15</span>
+        </a>
+        
+        <a  class="tools "
+           href="/2018/06/15/gdb%20%E6%97%A0%E6%B3%95attach%E8%BF%9B%E7%A8%8B/"
+           data-tag="Exploit"
+           data-author="" >
+            <span class="post-title" title="GDB 无法attach进程">GDB 无法attach进程</span>
+            <span class="post-date" title="2018-06-15 09:50:08">2018/06/15</span>
+        </a>
+        
+        <a  class="Pwn "
+           href="/2018/01/15/linux%E6%8F%90%E6%9D%83%E4%B9%8Bsetuid%E6%96%B9%E6%B3%95/"
+           data-tag="linux,privilge"
+           data-author="" >
+            <span class="post-title" title="Linux 提权之setuid使用提权">Linux 提权之setuid使用提权</span>
+            <span class="post-date" title="2018-01-15 09:50:08">2018/01/15</span>
+        </a>
+        
+        <a  class="tools "
+           href="/2018/01/01/modbus%E5%8D%8F%E8%AE%AE%E6%89%AB%E6%8F%8F%E5%99%A8%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"
+           data-tag="Exploit"
+           data-author="" >
+            <span class="post-title" title="Modbus协议扫描器的分析">Modbus协议扫描器的分析</span>
+            <span class="post-date" title="2018-01-01 09:50:08">2018/01/01</span>
+        </a>
+        
+        <a  class="Coding "
+           href="/2017/10/30/Pyhon%E6%89%A7%E8%A1%8Ccmd%E5%91%BD%E4%BB%A4%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%96%B9%E5%BC%8F/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Python执行系统命令方法">Python执行系统命令方法</span>
+            <span class="post-date" title="2017-10-30 09:50:08">2017/10/30</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2017/10/27/ssh%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SSH配置远程登陆问题">SSH配置远程登陆问题</span>
+            <span class="post-date" title="2017-10-27 09:50:08">2017/10/27</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/08/28/heap%E5%88%9D%E8%AF%86/"
+           data-tag="Heap Pwn"
+           data-author="" >
+            <span class="post-title" title="Linux Heap introduction Linux pwn 入门学习">Linux Heap introduction Linux pwn 入门学习</span>
+            <span class="post-date" title="2017-08-28 09:50:08">2017/08/28</span>
+        </a>
+        
+        <a  class="tools "
+           href="/2017/07/01/ROPgadget%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"
+           data-tag="Exp"
+           data-author="" >
+            <span class="post-title" title="ROPgadget 使用指南">ROPgadget 使用指南</span>
+            <span class="post-date" title="2017-07-01 09:50:08">2017/07/01</span>
+        </a>
+        
+        <a  class="tools "
+           href="/2017/06/15/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%96%87%E4%BB%B6%E5%90%8D%E8%A6%81%E7%94%A8%E5%B0%8F%E5%90%8D/"
+           data-tag="Filename"
+           data-author="" >
+            <span class="post-title" title="为什么文件名用小名">为什么文件名用小名</span>
+            <span class="post-date" title="2017-06-15 09:50:08">2017/06/15</span>
+        </a>
+        
+        <a  class="tools "
+           href="/2016/06/15/SQLChop%E6%A3%80%E6%B5%8B%E5%BC%95%E6%93%8E%E5%8E%9F%E7%90%86/"
+           data-tag="Exploit"
+           data-author="" >
+            <span class="post-title" title="长亭 SQLchop 实现方法">长亭 SQLchop 实现方法</span>
+            <span class="post-date" title="2016-06-15 09:50:08">2016/06/15</span>
         </a>
         
     </nav>
@@ -384,7 +462,7 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-GDB_peda插件使用指南" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-GDB_peda插件使用指南" class="article article-type-post" itemscope itemprop="blogPost">
     
         <h1 class="article-title">GDB_PEDA Exploit 调试插件安装</h1>
     
@@ -394,7 +472,7 @@
         
         <span class="book">
             
-                <a data-rel="tools">tools</a>
+                <a  data-rel="tools">tools</a>
             
         </span>
         
@@ -408,7 +486,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-04-06 15:08:07">2018-06-15 09:50</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-06 16:05:19'>2018-06-15 09:50</time>
         
     </div>
     <div class="article-meta">
@@ -545,28 +623,24 @@ $2 = 2633716
 
 设定参数，输入的参数设置
 
-pset arg &apos;cyclic_pattern(300)&apos;
-</code></pre><h1 id="linux-指令"><a href="#linux-指令" class="headerlink" title="linux 指令"></a>linux 指令</h1><h2 id="ldd"><a href="#ldd" class="headerlink" title="ldd"></a>ldd</h2><p>查询bin文件依赖</p>
+pset arg &apos;cyclic_pattern(300)&apos;</code></pre><h1 id="linux-指令"><a href="#linux-指令" class="headerlink" title="linux 指令"></a>linux 指令</h1><h2 id="ldd"><a href="#ldd" class="headerlink" title="ldd"></a>ldd</h2><p>查询bin文件依赖</p>
 <pre><code>ubuntu:~/Desktop/pwntools_test$ ldd section_test
 linux-gate.so.1 =&gt;  (0xf7728000)
 libc.so.6 =&gt; /lib/i386-linux-gnu/libc.so.6 (0xf7554000)
-/lib/ld-linux.so.2 (0x5660a000)
-</code></pre><h2 id="查询libc-so-版本号"><a href="#查询libc-so-版本号" class="headerlink" title="查询libc.so 版本号"></a>查询libc.so 版本号</h2><p><a href="https://github.com/niklasb/libc-database" target="_blank" rel="noopener">https://github.com/niklasb/libc-database</a>  用来查询libc版本信息内容，为exp提供方便</p>
+/lib/ld-linux.so.2 (0x5660a000)</code></pre><h2 id="查询libc-so-版本号"><a href="#查询libc-so-版本号" class="headerlink" title="查询libc.so 版本号"></a>查询libc.so 版本号</h2><p><a href="https://github.com/niklasb/libc-database" target="_blank" rel="noopener">https://github.com/niklasb/libc-database</a>  用来查询libc版本信息内容，为exp提供方便</p>
 <p><a href="http://libcdb.com/" target="_blank" rel="noopener">http://libcdb.com/</a><br>网上查询版本</p>
 <h2 id="checksec-检测保护方式"><a href="#checksec-检测保护方式" class="headerlink" title="checksec 检测保护方式"></a>checksec 检测保护方式</h2><p>我们最常见的保护明星</p>
 <pre><code>CANARY: disabled
 FORTIFY   : disabled
 NX: ENABLED
 PIE   : disabled
-RELRO : Partial
-</code></pre><h3 id="GANNARY（栈保护）"><a href="#GANNARY（栈保护）" class="headerlink" title="GANNARY（栈保护）"></a>GANNARY（栈保护）</h3><p>Windows下以security cookie形式存在，这个选项表示栈保护功能有没有开启。</p>
+RELRO : Partial</code></pre><h3 id="GANNARY（栈保护）"><a href="#GANNARY（栈保护）" class="headerlink" title="GANNARY（栈保护）"></a>GANNARY（栈保护）</h3><p>Windows下以security cookie形式存在，这个选项表示栈保护功能有没有开启。</p>
 <p>栈溢出保护是一种缓冲区溢出攻击缓解手段，当函数存在缓冲区溢出攻击漏洞时，攻击者可以覆盖栈上的返回地址来让shellcode能够得到执行。当启用栈保护后，函数开始执行的时候会先往栈里插入cookie信息，当函数真正返回的时候会验证cookie信息是否合法，如果不合法就停止程序运行。攻击者在覆盖返回地址的时候往往也会将cookie信息给覆盖掉，导致栈保护检查失败而阻止shellcode的执行。在Linux中我们将cookie信息称为canary。</p>
 <p>gcc在4.2版本中添加了-fstack-protector和-fstack-protector-all编译参数以支持栈保护功能，4.9新增了-fstack-protector-strong编译参数让保护的范围更广。</p>
 <p>因此在编译时可以控制是否开启栈保护以及程度，例如：</p>
 <pre><code>gcc -fno-stack-protector -o test test.c  //禁用栈保护
 gcc -fstack-protector -o test test.c   //启用堆栈保护，不过只为局部变量中含有 char 数组的函数插入保护代码
-gcc -fstack-protector-all -o test test.c //启用堆栈保护，为所有函数插入保护代码
-</code></pre><h3 id="FORTIFY"><a href="#FORTIFY" class="headerlink" title="FORTIFY"></a>FORTIFY</h3><p>。。。。。。</p>
+gcc -fstack-protector-all -o test test.c //启用堆栈保护，为所有函数插入保护代码</code></pre><h3 id="FORTIFY"><a href="#FORTIFY" class="headerlink" title="FORTIFY"></a>FORTIFY</h3><p>。。。。。。</p>
 <h3 id="NX（DEP）"><a href="#NX（DEP）" class="headerlink" title="NX（DEP）"></a>NX（DEP）</h3><p>堆栈不可执行，通过修改页属性，不能执行代码。NX即No-eXecute（不可执行）的意思，NX（DEP）的基本原理是将数据所在内存页标识为不可执行，当程序溢出成功转入shellcode时，程序会尝试在数据页面上执行指令，此时CPU就会抛出异常，而不是去执行恶意指令。</p>
 <p><img src="http://i.imgur.com/mwQwzQF.jpg" alt=""></p>
 <h3 id="ASLR（PIE）"><a href="#ASLR（PIE）" class="headerlink" title="ASLR（PIE）"></a>ASLR（PIE）</h3><p>一般情况下NX（Windows平台上称其为DEP）和地址空间分布随机化（ASLR）会同时工作。</p>
@@ -593,19 +667,19 @@ gcc -fstack-protector-all -o test test.c //启用堆栈保护，为所有函数�
 
 
 <p>
-    <a class="dashang" onclick="dashangToggle()">赏</a>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
 </p>
 
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>GDB_PEDA Exploit 调试插件安装</p>
     
-    <p><span class="copy-title">本文作者:</span><a title="古萌">古萌</a></p>
+    <p><span class="copy-title">本文作者:</span><a  title="古萌">古萌</a></p>
     <p><span class="copy-title">发布时间:</span>2018-06-15, 09:50:08</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-06, 15:08:07</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/06/15/GDB_peda插件使用指南/" title="GDB_PEDA Exploit 调试插件安装">http://gumeng.fun/2018/06/15/GDB_peda插件使用指南/</a>
+    <p><span class="copy-title">最后更新:</span>2020-04-06, 16:05:19</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/06/15/GDB_peda%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="GDB_PEDA Exploit 调试插件安装">http://gumeng.fun/2018/06/15/GDB_peda%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</a>
     <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
 </div>
 
@@ -632,7 +706,7 @@ gcc -fstack-protector-all -o test test.c //启用堆栈保护，为所有函数�
 
     </div>
 </div>
-<a class="" id="rocket"></a>
+<a class="" id="rocket" ></a>
 
     </div>
 </div>
@@ -640,7 +714,7 @@ gcc -fstack-protector-all -o test test.c //启用堆栈保护，为所有函数�
 
 <div class="hide_box" onclick="dashangToggle()"></div>
 <div class="shang_box">
-    <a class="shang_close" onclick="dashangToggle()">×</a>
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
     <div class="shang_tit">
         <p>喜欢就点赞,疼爱就打赏</p>
     </div>
@@ -657,15 +731,15 @@ gcc -fstack-protector-all -o test test.c //启用堆栈保护，为所有函数�
 
 
 </body>
-<script src="/js/jquery.pjax.js?v=1.0.1"></script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
 
-<script src="/js/script.js?v=1.0.1"></script>
+<script src="/js/script.js?v=1.0.1" ></script>
 <script>
     var img_resize = 'default';
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#Blog','#漏洞利用','#Exp','#Filename','#Linux','#Heap Pwn','#Exploit','#linux','#privilge','#随笔','#Pwn','#nmap',],
+            'data': ['#Exploit','#漏洞利用','#Linux','#Exp','#Heap Pwn','#linux','#privilge','#随笔','#Filename','#Pwn','#nmap',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

